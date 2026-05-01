@@ -1,2 +1,0 @@
-import { IsOptional, IsString } from 'class-validator';
-export class UpdateBuyerDto { @IsOptional() @IsString() displayName?: string; @IsOptional() @IsString() avatar?: string; @IsOptional() @IsString() bio?: string; }
