@@ -42,26 +42,6 @@ const SHELF_SPINES = [
   { title: "Atlas", author: "N. Code", height: "69%", tone: "#A0522D", z: -20 },
 ];
 
-const PROOF_SHOTS = [
-  {
-    src: "/product/shelfscanner-uipro-scanner-mobile-verified.png",
-    title: "Mobile scanner console",
-    note: "Bottom navigation, capture guidance, and review-first scan flow.",
-  },
-  {
-    src: "/product/shelfscanner-uipro-results-desktop.png",
-    title: "Ranking decision board",
-    note: "Confirmed books, fit signals, metadata, and buying paths in one surface.",
-  },
-];
-
-const TRUST_SIGNALS = [
-  ["Real scan path", "live", "The scanner starts from an uploaded shelf image, not a fake catalogue."],
-  ["Review gate", "human", "Uncertain OCR can be corrected before the ranking decision is made."],
-  ["Result honesty", "enforced", "Results do not render mock books when no shelf has been scanned."],
-  ["Mobile route", "ready", "The core scanner path is built around phone-in-hand usage."],
-];
-
 const STEPS = [
   {
     n: "01",
@@ -95,12 +75,6 @@ const STEPS = [
   },
 ];
 
-const PRODUCT_TRACE = [
-  ["01", "Capture", "Shelf photo enters the scanner with mobile-first framing guidance."],
-  ["02", "Verify", "Detected spines pause at a review gate before recommendation logic runs."],
-  ["03", "Rank", "Confirmed titles are ordered against taste, rating floor, and buying intent."],
-];
-
 export default function HomePage({ setPage, prefs, setPrefs, showToast }) {
   const [dragover, setDragover] = useState(false);
   const [csvFile, setCsvFile] = useState(null);
@@ -113,7 +87,6 @@ export default function HomePage({ setPage, prefs, setPrefs, showToast }) {
 
   const revealProcess = useReveal();
   const revealPrefs = useReveal();
-  const revealProof = useReveal();
   const revealTaste = useReveal();
 
   useEffect(() => {
@@ -386,97 +359,6 @@ export default function HomePage({ setPage, prefs, setPrefs, showToast }) {
         </div>
         <div className="hero-scroll-cue" aria-hidden="true">
           <span />
-        </div>
-      </section>
-
-      <section className="section proof-section reveal reveal-stagger" ref={revealProof} aria-label="ShelfScanner product proof">
-        <div className="proof-head">
-          <div>
-            <div className="scanner-kicker"><CheckCircle size={15} /> Working product</div>
-            <h2 className="section-title">The scanner flow is visible before you trust the result.</h2>
-          </div>
-          <p>
-            No decorative recommendation theater: the page shows the scan, the review
-            gate, and the ranked result as one traceable product path.
-          </p>
-        </div>
-
-        <div className="product-proof-board">
-          <figure className="proof-screen proof-screen-primary">
-            <div className="screen-toolbar" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <strong>scanner / mobile</strong>
-            </div>
-            <img
-              src={PROOF_SHOTS[0].src}
-              alt={PROOF_SHOTS[0].title}
-              width="375"
-              height="2238"
-              loading="lazy"
-              decoding="async"
-              onError={(event) => {
-                event.currentTarget.closest(".proof-screen")?.classList.add("is-missing");
-                event.currentTarget.hidden = true;
-              }}
-            />
-            <figcaption>
-              <strong>{PROOF_SHOTS[0].title}</strong>
-              <span>{PROOF_SHOTS[0].note}</span>
-            </figcaption>
-          </figure>
-
-          <div className="proof-decision-panel">
-            <div className="proof-stat-row" aria-label="ShelfScanner product flow">
-              {PRODUCT_TRACE.map(([n, title, note]) => (
-                <span key={title}>
-                  <strong>{n}</strong>
-                  <em>{title}</em>
-                  <small>{note}</small>
-                </span>
-              ))}
-            </div>
-
-            <div className="trust-board" aria-label="Verified product checks">
-              {TRUST_SIGNALS.map(([label, value, note]) => (
-                <div key={label}>
-                  <span>{label}</span>
-                  <strong>{value}</strong>
-                  <small>{note}</small>
-                </div>
-              ))}
-            </div>
-
-            <button className="btn-primary proof-cta" onClick={() => setPage("scanner")}>
-              <Camera size={17} /> Test the real scanner <ArrowRight size={16} />
-            </button>
-          </div>
-
-          <figure className="proof-screen proof-screen-secondary">
-            <div className="screen-toolbar" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <strong>results / decision board</strong>
-            </div>
-            <img
-              src={PROOF_SHOTS[1].src}
-              alt={PROOF_SHOTS[1].title}
-              width="900"
-              height="1425"
-              loading="lazy"
-              decoding="async"
-              onError={(event) => {
-                event.currentTarget.closest(".proof-screen")?.classList.add("is-missing");
-                event.currentTarget.hidden = true;
-              }}
-            />
-            <figcaption>
-              <strong>{PROOF_SHOTS[1].title}</strong>
-              <span>{PROOF_SHOTS[1].note}</span>
-            </figcaption>
-          </figure>
         </div>
       </section>
 

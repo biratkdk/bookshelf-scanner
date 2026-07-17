@@ -14,16 +14,6 @@ const checks = [
     file: "packages/frontend/public/fairy/bookshelf-demo.jpg",
     maxBytes: 2 * 1024 * 1024,
   },
-  {
-    label: "scanner proof image budget",
-    file: "packages/frontend/public/product/shelfscanner-uipro-scanner-mobile-verified.png",
-    maxBytes: 900 * 1024,
-  },
-  {
-    label: "results proof image budget",
-    file: "packages/frontend/public/product/shelfscanner-uipro-results-desktop.png",
-    maxBytes: 900 * 1024,
-  },
 ];
 const requiredFiles = [
   "api/index.js",

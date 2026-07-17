@@ -10,11 +10,6 @@ ShelfScanner turns a single photo of a bookshelf into structured book data: titl
 ![Express](https://img.shields.io/badge/Express-5-000000?logo=express&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18-4169E1?logo=postgresql&logoColor=white)
 
-<p align="center">
-  <img src="packages/frontend/public/product/shelfscanner-uipro-scanner-mobile-verified.png" alt="ShelfScanner scanner view on mobile" width="45%" />
-  <img src="packages/frontend/public/product/shelfscanner-uipro-results-desktop.png" alt="ShelfScanner scan results on desktop" width="45%" />
-</p>
-
 ## How it works
 
 ```
